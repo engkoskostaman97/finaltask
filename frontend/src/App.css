@@ -147,6 +147,7 @@ nav a:first-child {
 }
 
 .profile-card {
+  margin-top: 10px;
   background-color: #1f1f1f;
   /* margin: auto; */
   margin-right: 45px;
@@ -167,6 +168,7 @@ nav a:first-child {
 }
 
 .profile-data {
+
   display: flex;
   padding-left: 10px;
   margin-bottom: 15px;
@@ -187,9 +189,10 @@ nav a:first-child {
 
 .profile-desc {
   display: block;
+  margin-top: 40px;
   min-width: 50%;
   max-width: 100%;
-  min-height: 50vh;
+  min-height: 40vh;
   /* background-color: red; */
 }
 
@@ -227,4 +230,18 @@ nav a:first-child {
 .profile-button:hover {
   background: #8b040b;
   border: 1px solid #8b040b;
+}
+
+.btn-edite {
+  position: relative;
+  width: 50%;
+  height: 70px;
+  margin-left: 40px;
+  margin-top: 110px;
+  font-size: 1.3rem;
+  background: #e50914;
+  border: 1px solid #e50914;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
 }

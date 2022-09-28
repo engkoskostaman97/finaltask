@@ -60,6 +60,9 @@ function Profile() {
                                 <span>Address</span>
                             </div>
                         </div>
+                        <div>
+                            <button className='btn-edite'>Edite Profile</button>
+                        </div>
                     </div>
                     <div className="profile-img">
                         <img src={avatar} alt="avatar" className="profile-avatar" />
