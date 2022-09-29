@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import avatar from "../assets/profile/blank-profile.png";
 import name from "../assets/profile/name.png";
 import email from "../assets/profile/email.png";
@@ -9,12 +9,18 @@ import address from "../assets/profile/address.png";
 import Navbars from '../component/Navbars';
 import Editprofile from '../component/Editprofile';
 import Literatur from '../image/literatur.png';
+import { UserContext } from '../context/userContext';
 
 import Card from 'react-bootstrap/Card';
 function Profile() {
-    const [show, setShow] = useState(false);
-    const handleShow = () => setShow(true);
-    const handleClose = () => setShow(false);
+    // const [show, setShow] = useState(false);
+    // const handleShow = () => setShow(true);
+    // const handleClose = () => setShow(false);
+    const [state] = useContext(UserContext);
+
+    console.log("ini state", state);
+
+
     return (
         <>
             <div>
@@ -31,7 +37,7 @@ function Profile() {
                             </div>
                             <div className="profile-details">
                                 <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    asoy@mail.com
+                                    {state.user.email}
                                 </span>
                                 <span>Email</span>
                             </div>
@@ -41,7 +47,7 @@ function Profile() {
                                 <img src={gender} alt="" />
                             </div>
                             <div className="profile-details">
-                                <span style={{ fontSize: "18px", fontWeight: "bold" }}> Male</span>
+                                <span style={{ fontSize: "18px", fontWeight: "bold" }}> {state.user.gender}</span>
                                 <span>Gender</span>
                             </div>
                         </div>
@@ -51,7 +57,7 @@ function Profile() {
                             </div>
                             <div className="profile-details">
                                 <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    0890808908090
+                                    {state.user.phone}
                                 </span>
                                 <span>Mobile Phone</span>
                             </div>
@@ -62,7 +68,7 @@ function Profile() {
                             </div>
                             <div className="profile-details">
                                 <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    jl.sawangan depok No.12
+                                    {state.user.addres}
                                 </span>
                                 <span>Address</span>
                             </div>
@@ -73,8 +79,8 @@ function Profile() {
                     </div>
                     <div className="profile-img">
                         <img src={avatar} alt="avatar" className="profile-avatar" />
-                        <button className="profile-button" onClick={handleShow}>Edite Profile</button>
-                        <Editprofile show={show} handleClose={handleClose} />
+                        <button className="profile-button" >Change Photo Profile</button>
+                        {/* <Editprofile show={show} handleClose={handleClose} /> */}
                     </div>
                 </div>
             </div>
