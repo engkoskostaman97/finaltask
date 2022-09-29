@@ -411,3 +411,14 @@ nav a:first-child {
 .containerCard .box:hover .content p {
   transform: translateY(0px);
 }
+
+/* image dropdwon */
+.image-dropdown {
+  width: 45px;
+  height: 50px;
+}
+
+.image-logout {
+  width: 35px;
+  height: 50px;
+}
