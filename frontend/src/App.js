@@ -8,6 +8,8 @@ import Profile from './pages/Profile';
 import Mycollection from './pages/Mycollection';
 import Addliterature from './pages/Addliterature';
 import Search from './pages/Search';
+import Detail from './pages/Detail';
+
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
       <Route path='/mycollection' element={<Mycollection />} />
       <Route path='/addliterature' element={<Addliterature />} />
       <Route path='/search' element={<Search />} />
+      <Route path='/detail' element={<Detail />} />
     </Routes>
 
   );

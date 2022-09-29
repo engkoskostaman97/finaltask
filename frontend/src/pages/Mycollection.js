@@ -2,7 +2,7 @@ import React from 'react'
 import Navbars from '../component/Navbars'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Literatur from '../image/literatur.png';
+import Homes from '../image/home.png'
 
 function Mycollection() {
     return (
@@ -11,7 +11,7 @@ function Mycollection() {
             <h3 style={{ marginLeft: "115px", color: "white" }}> My Collection</h3>
             <div style={{ marginLeft: "115px" }}>
                 <Card style={{ width: '18rem', height: "30rem" }}>
-                    <Card.Img src={Literatur} />
+                    <Card.Img src={Homes} />
                     <Card.Body>
                         <Card.Title>Card</Card.Title>
                         <Card.Text>
