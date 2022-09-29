@@ -66,7 +66,7 @@ export default function Register({
                 // onChange={handleChange}
                 className="px-3 py-2 mt-3"
               />
-              {/* <input
+              <input
                 type="text"
                 placeholder="Gender (L/P)"
                 name="gender"
@@ -89,7 +89,7 @@ export default function Register({
                 // value={address}
                 // onChange={handleChange}
                 className="px-3 py-2 mt-3"
-              /> */}
+              />
             </div>
             <div>
               <input

@@ -139,7 +139,7 @@ function Admin() {
                                 <td>Haris Astina</td>
                                 <td>9781789807576</td>
                                 <td className='text-primary'>tessonroad.pdf</td>
-                                <td className="text-warning">Pending</td>
+                                <td className="text-warning">Waiting to be verifed</td>
                                 <td>
                                     <Dropdown className="me-5">
                                         <Dropdown.Toggle
@@ -174,7 +174,7 @@ function Admin() {
                                 <td>Azis Oni On</td>
                                 <td>9781789807709</td>
                                 <td className='text-primary'>psy.pdf</td>
-                                <td className="text-warning">Pending</td>
+                                <td className="text-warning">Waiting to be verifed</td>
                                 <td>
                                     <Dropdown className="me-5">
                                         <Dropdown.Toggle
@@ -209,7 +209,7 @@ function Admin() {
                                 <td>Sugeng No Pants</td>
                                 <td>9781789807000</td>
                                 <td className='text-primary'>management.pdf</td>
-                                <td className="text-warning">Pending</td>
+                                <td className="text-warning">Waiting to be verifed</td>
                                 <td>
                                     <Dropdown className="me-5">
                                         <Dropdown.Toggle
