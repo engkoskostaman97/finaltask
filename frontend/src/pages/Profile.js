@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import avatar from "../assets/profile/blank-profile.png";
 import name from "../assets/profile/name.png";
 import email from "../assets/profile/email.png";
@@ -7,7 +7,14 @@ import gender from "../assets/profile/gender.png";
 import phone from "../assets/profile/phone.png";
 import address from "../assets/profile/address.png";
 import Navbars from '../component/Navbars';
+import Editprofile from '../component/Editprofile';
+import Literatur from '../image/literatur.png';
+
+import Card from 'react-bootstrap/Card';
 function Profile() {
+    const [show, setShow] = useState(false);
+    const handleShow = () => setShow(true);
+    const handleClose = () => setShow(false);
     return (
         <>
             <div>
@@ -60,17 +67,33 @@ function Profile() {
                                 <span>Address</span>
                             </div>
                         </div>
-                        <div>
+                        {/* <div>
                             <button className='btn-edite'>Edite Profile</button>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="profile-img">
                         <img src={avatar} alt="avatar" className="profile-avatar" />
-                        <button className="profile-button">Change Photo Profile</button>
+                        <button className="profile-button" onClick={handleShow}>Edite Profile</button>
+                        <Editprofile show={show} handleClose={handleClose} />
                     </div>
                 </div>
             </div>
             <h3 style={{ marginLeft: "110px", color: "white" }}> My Literature</h3>
+            <div style={{ marginLeft: "115px" }}>
+                <Card style={{ width: '18rem', height: "30rem" }}>
+                    <Card.Img src={Literatur} />
+                    <Card.Body>
+                        <Card.Title>Card</Card.Title>
+                        <Card.Text>
+                            BOOK
+                        </Card.Text>
+                    </Card.Body>
+                    <Card.Footer >
+                        <small className="font-weight-bold text-lg text-uppercase">Management System<small className="font-weight-bold text-lg text-uppercase" > 2012</small></small>
+                    </Card.Footer>
+                </Card>
+            </div>
+
         </>
     );
 }

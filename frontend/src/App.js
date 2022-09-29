@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Mycollection from './pages/Mycollection';
 import Addliterature from './pages/Addliterature';
+import Search from './pages/Search';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path='/profile' element={<Profile />} />
       <Route path='/mycollection' element={<Mycollection />} />
       <Route path='/addliterature' element={<Addliterature />} />
+      <Route path='/search' element={<Search />} />
     </Routes>
 
   );

@@ -168,7 +168,6 @@ nav a:first-child {
 }
 
 .profile-data {
-
   display: flex;
   padding-left: 10px;
   margin-bottom: 15px;
@@ -189,7 +188,7 @@ nav a:first-child {
 
 .profile-desc {
   display: block;
-  margin-top: 40px;
+  margin-bottom: 80px;
   min-width: 50%;
   max-width: 100%;
   min-height: 40vh;
@@ -244,4 +243,60 @@ nav a:first-child {
   border-radius: 5px;
   color: #ffffff;
   cursor: pointer;
+}
+
+/* modal */
+.bg-Modal {
+  background-color: #1f1f1f;
+  display: flex;
+  width: auto;
+  height: auto;
+}
+
+.form input {
+  background: rgba(210, 210, 210, 0.25);
+  border: 2px solid #bcbcbc;
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 100%;
+  color: #ffffff;
+}
+
+.btn1 {
+  background: red !important;
+  border-radius: 5px !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  line-height: 25px !important;
+  color: #ffffff !important;
+}
+
+.btnRegister {
+  border: 0px;
+  background: white !important;
+  border-radius: 5px !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  line-height: 25px !important;
+  color: red !important;
+}
+
+.warning {
+  color: white;
+  text-align: center;
+}
+
+.btnHere {
+  border: 0px;
+  background-color: #1f1f1f;
+  color: white;
+  font-weight: bold;
+}
+
+.notfound {
+  margin-top: 20%;
+  text-align: center;
+  background-color: red;
 }
