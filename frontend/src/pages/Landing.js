@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Homes from '../image/home.png';
 import Literatur from '../image/literatur.png'
-
+import { UserContext } from '../context/userContext'
+import { useContext } from "react";
 // component
 import Login from '../component/Login'
 import Register from '../component/Register';
@@ -12,9 +13,10 @@ function Landing() {
     const [isLogin, setIsLogin] = useState(true);
     const [loginShow, setLoginShow] = useState(false);
     const [registerShow, setRegisterShow] = useState(false);
+    const user = localStorage.getItem('token')
+    const [show, setShow] = useState(false);
 
-
-
+    const [state, dispatch] = useContext(UserContext)
     const registerHere = (e) => {
         e.preventDefault();
         setRegisterShow(false);
@@ -34,8 +36,13 @@ function Landing() {
         Navigate('/')
     }
 
-
+    useEffect(() => {
+        if (user) {
+            setIsLogin(true)
+        } else setIsLogin(false)
+    }, [state, handleLogout]);
     return (
+
         <>
             <div>
                 <img src={Literatur} alt="literatur" className='literatur' />
@@ -73,7 +80,6 @@ function Landing() {
                     </Col>
                     <div className='d-flex justify-content-end '>
                         <img src={Homes} alt="landing" className="landing-image" />
-
                     </div>
                 </Row>
             </Container>

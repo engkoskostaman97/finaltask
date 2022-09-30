@@ -13,7 +13,7 @@ function Admin() {
     return (
         <>
             <div><NavbarAdmin /></div>
-            <Card style={styles.cardd}>
+            <Card style={styles.card}>
                 <Card.Body className="text-light m-3">
                     <Card.Title className="mb-4">Book verification</Card.Title>
                     <Table striped bordered hover variant="light">
@@ -48,13 +48,13 @@ function Admin() {
                                         ></Dropdown.Toggle>
                                         <Dropdown.Menu className="bg-dark">
                                             <Dropdown.Item
-                                                href="#/action-1"
+                                                href="/action-1"
                                                 className="text-success text-center"
                                             >
                                                 <span>Approved</span>
                                             </Dropdown.Item>
                                             <Dropdown.Item
-                                                href="#/action-2"
+                                                href="/action-2"
                                                 className="text-danger text-center"
                                             >
                                                 <span>Cancel</span>
@@ -83,13 +83,13 @@ function Admin() {
                                         ></Dropdown.Toggle>
                                         <Dropdown.Menu className="bg-dark">
                                             <Dropdown.Item
-                                                href="#/action-1"
+                                                href="/action-1"
                                                 className="text-success text-center"
                                             >
                                                 <span>Approved</span>
                                             </Dropdown.Item>
                                             <Dropdown.Item
-                                                href="#/action-2"
+                                                href="/action-2"
                                                 className="text-danger text-center"
                                             >
                                                 <span>Cancel</span>
@@ -118,13 +118,13 @@ function Admin() {
                                         ></Dropdown.Toggle>
                                         <Dropdown.Menu className="bg-dark">
                                             <Dropdown.Item
-                                                href="#/action-1"
+                                                href="/action-1"
                                                 className="text-success text-center"
                                             >
                                                 <span>Approved</span>
                                             </Dropdown.Item>
                                             <Dropdown.Item
-                                                href="#/action-2"
+                                                href="/action-2"
                                                 className="text-danger text-center"
                                             >
                                                 <span>Cancel</span>
@@ -153,13 +153,13 @@ function Admin() {
                                         ></Dropdown.Toggle>
                                         <Dropdown.Menu className="bg-dark">
                                             <Dropdown.Item
-                                                href="#/action-1"
+                                                href="/action-1"
                                                 className="text-success text-center"
                                             >
                                                 <span>Approved</span>
                                             </Dropdown.Item>
                                             <Dropdown.Item
-                                                href="#/action-2"
+                                                href="/action-2"
                                                 className="text-danger text-center"
                                             >
                                                 <span>Cancel</span>
@@ -188,13 +188,13 @@ function Admin() {
                                         ></Dropdown.Toggle>
                                         <Dropdown.Menu className="bg-dark">
                                             <Dropdown.Item
-                                                href="#/action-1"
+                                                href="/action-1"
                                                 className="text-success text-center"
                                             >
                                                 <span>Approved</span>
                                             </Dropdown.Item>
                                             <Dropdown.Item
-                                                href="#/action-2"
+                                                href="/action-2"
                                                 className="text-danger text-center"
                                             >
                                                 <span>Cancel</span>
@@ -223,13 +223,13 @@ function Admin() {
                                         ></Dropdown.Toggle>
                                         <Dropdown.Menu className="bg-dark">
                                             <Dropdown.Item
-                                                href="#/action-1"
+                                                href="/action-1"
                                                 className="text-success text-center"
                                             >
                                                 <span>Approved</span>
                                             </Dropdown.Item>
                                             <Dropdown.Item
-                                                href="#/action-2"
+                                                href="/action-2"
                                                 className="text-danger text-center"
                                             >
                                                 <span>Cancel</span>

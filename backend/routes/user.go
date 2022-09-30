@@ -18,7 +18,7 @@ func UserRoutes(r *mux.Router) {
 	r.HandleFunc("/user/{id}", h.UpdateUser).Methods("PATCH")
 	r.HandleFunc("/user/{id}", h.DeleteUser).Methods("DELETE")
 
-	r.HandleFunc("/profile/{id}/literatur", h.GetUser).Methods("GET")
+	r.HandleFunc("/user/{id}/literatur", h.GetUser).Methods("GET")
 
 	// r.HandleFunc("/profile/{id}/literatur", h.GetUser).Methods("GET")
 }

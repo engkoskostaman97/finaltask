@@ -5,7 +5,7 @@ import { useMutation } from 'react-query';
 import { API } from "../config/api";
 import { UserContext } from "../context/userContext";
 
-export default function Login({
+export default function ModalLogin({
     loginShow,
     setLoginShow,
     loginHere,

@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import {
     Form,
-    Row,
     Col,
     Modal,
     Button,
@@ -46,7 +45,7 @@ const Editprofile = ({ show, handleClose }) => {
                     </Modal.Header>
                     <Modal.Body className="bg-dark text-white border-0">
                         <Form>
-                            <Row>
+                        
 
                                 <Col>
                                     {/* Attach */}
@@ -61,7 +60,7 @@ const Editprofile = ({ show, handleClose }) => {
                                         </Button>
                                     </Form.Group>
                                 </Col>
-                            </Row>
+            
                             <Form.Group className="mb-3" controlId="gender">
                                 <Form.Control
                                     style={styles.color}

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from "react";
 import avatar from "../assets/profile/blank-profile.png";
 import name from "../assets/profile/name.png";
 import email from "../assets/profile/email.png";
@@ -6,20 +6,48 @@ import status from "../assets/profile/status.png";
 import gender from "../assets/profile/gender.png";
 import phone from "../assets/profile/phone.png";
 import address from "../assets/profile/address.png";
-import Navbars from '../component/Navbars';
-import Editprofile from '../component/Editprofile';
-import Literatur from '../image/literatur.png';
-import { UserContext } from '../context/userContext';
+import Navbars from "../component/Navbars";
+import Editprofile from "../component/Editprofile";
+import Homes from "../image/home.png";
+import { UserContext } from "../context/userContext";
+import { API } from '../config/api'
+import { useQuery } from 'react-query'
+import { Card, Row, Col } from "react-bootstrap";
 
-import Card from 'react-bootstrap/Card';
 function Profile() {
-    // const [show, setShow] = useState(false);
-    // const handleShow = () => setShow(true);
-    // const handleClose = () => setShow(false);
-    const [state] = useContext(UserContext);
+    // const [show, setShow] = useState(false); 
+    // const handleShow = () => setShow(true); 
+    // const handleClose = () => setShow(false); 
 
-    console.log("ini state", state);
+    const [state, dispatch] = useContext(UserContext);
+    console.log("testing", state);
 
+
+
+    const [literatur, setLiteratur] = useState([])
+    // // Fetching product data from database
+    // let { data: products } = useQuery('productsCache', async () => {
+    //     const response = await API.get('/products');
+    //     return response.data.data;
+    // });
+
+    let { data: literaturs } = useQuery("literaturCache", async () => {
+
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.token}`,
+            }
+        }
+
+        const response = await API.get(`/user/${state.user.user_id}`, config);
+        console.log("response literatur", response);
+
+        const resultResponse = response.data.data.literatur;
+        setLiteratur(resultResponse)
+
+        return resultResponse;
+    });
 
     return (
         <>
@@ -30,7 +58,6 @@ function Profile() {
             <div className="profile-container">
                 <div className="profile-card">
                     <div className="profile-desc">
-
                         <div className="profile-data">
                             <div className="profile-icon">
                                 <img src={email} alt="" />
@@ -47,7 +74,10 @@ function Profile() {
                                 <img src={gender} alt="" />
                             </div>
                             <div className="profile-details">
-                                <span style={{ fontSize: "18px", fontWeight: "bold" }}> {state.user.gender}</span>
+                                <span style={{ fontSize: "18px", fontWeight: "bold" }}>
+                                    {" "}
+                                    {state.user.gender}
+                                </span>
                                 <span>Gender</span>
                             </div>
                         </div>
@@ -68,7 +98,7 @@ function Profile() {
                             </div>
                             <div className="profile-details">
                                 <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    {state.user.addres}
+                                    {state.user.address}
                                 </span>
                                 <span>Address</span>
                             </div>
@@ -78,31 +108,42 @@ function Profile() {
                         </div> */}
                     </div>
                     <div className="profile-img">
-                        <img src={avatar} alt="avatar" className="profile-avatar" />
-                        <button className="profile-button" >Change Photo Profile</button>
+                        <img src={avatar} alt="avatar" className="profile-avatar" style={{ height: "300px", weight: "100px", objectFit: "cover" }} />
+                        <button className="profile-button">Change Photo Profile</button>
                         {/* <Editprofile show={show} handleClose={handleClose} /> */}
                     </div>
                 </div>
             </div>
             <h3 style={{ marginLeft: "110px", color: "white" }}> My Literature</h3>
-            <div style={{ marginLeft: "115px" }}>
-                <Card style={{ width: '18rem', height: "30rem" }}>
-                    <Card.Img src={Literatur} />
-                    <Card.Body>
-                        <Card.Title>Card</Card.Title>
-                        <Card.Text>
-                            BOOK
-                        </Card.Text>
-                    </Card.Body>
-                    <Card.Footer >
-                        <small className="font-weight-bold text-lg text-uppercase">Management System<small className="font-weight-bold text-lg text-uppercase" > 2012</small></small>
-                    </Card.Footer>
-                </Card>
+            <br />
+            <div style={{ marginLeft: "70px", marginRight: "115px" }} className="containerCard">
+
+                <Row xs={1} md={4} className="g-4">
+
+
+                    {literatur?.slice(0, 4).map((data, index) => {
+                        return (
+                            <Col>
+                                <Card style={{ border: "none" }}>
+                                    <Card.Img variant="top" src={Homes} style={{ height: "300px", borderRadius: "10px" }} />
+                                    <Card.Body style={{ backgroundColor: "black" }}>
+                                        <Card.Title style={{ backgroundColor: "black", color: "white", marginLeft: "-17px" }}>{data.title}</Card.Title>
+                                        <Card.Text style={{ color: "white" }}>
+                                            <Row style={{ marginLeft: "-28px" }}>
+                                                <Col>{data.author}</Col>
+                                                <Col style={{ marginLeft: "140px" }}>{data.publicationdate}</Col>
+                                            </Row>
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        );
+                    })}
+                </Row>
             </div>
 
         </>
     );
 }
 
-
-export default Profile
+export default Profile;
