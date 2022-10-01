@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import Col from 'react-bootstrap/Col';
 import { Form, Button } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
@@ -19,27 +19,52 @@ function Searchresault() {
         const response = await API.get('/literaturs');
         return response.data.data;
     });
+    //declare state
+    const [dataFilter, setDataFilter] = useState([]);
+
+    function handleChangeLiterature(e) {
+        if (!e.target.value) {
+            setDataFilter(literaturs);
+            return;
+        }
+        const filter = literaturs?.filter((item) => {
+            return item.title.toLowerCase().includes(e.target.value.toLowerCase());
+        });
+        setDataFilter(filter);
+    }
+
+    useEffect(() => {
+        if (literaturs) setDataFilter(literaturs);
+    }, [literaturs]);
+
 
     return (
         <>
             <div className="d-grid gap-2" >
                 <Form>
                     <Row>
-                        <Col xs={7} style={{
-                            marginLeft: "120px",
-                            justifyContent: "center"
-                        }}>
-                            <Form.Control placeholder="Search for literature" />
+                        <Col
+                            xs={7}
+                            style={{
+                                marginLeft: "120px",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <Form.Control
+                                placeholder="Search for literature"
+                                onChange={handleChangeLiterature}
+                            />
                         </Col>
                         <Col>
                             <Button
+                                as={Link} to="/search"
                                 className="ml-2"
                                 type="submit"
                                 style={{
                                     padding: 5,
-                                    backgroundColor: "red"
+                                    backgroundColor: "red",
                                 }}
-                                href="/search"
+                            // href="/search" 
                             >
                                 <AiOutlineSearch size="26px" color="white" />
                             </Button>
@@ -57,34 +82,32 @@ function Searchresault() {
                     </DropdownButton>
                 </div>
             </div>
-            <CardGroup style={{ marginLeft: "115px", marginTop: "10px" }} className="containerCard">
-                <div>
-                    <div class="col-4 " style={{width:"100%"}} >
-                        <Row xs={1} md={4} className="g-6" style={{width:"100%"}}>
-                            {literaturs?.map((item) => (
-                                <Col>
-                                    <Link to="/detail" className='text-decoraction-none'>
-                                        <Card>
-                                            <Card.Img variant="top" src={Homes} />
-                                            <Card.Body>
-                                                <Card.Title>{item.title}</Card.Title>
-                                                <Card.Text>
-                                                    This is a wider card with supporting text below as a natural lead-in
-                                                    to additional content. This content is a little bit longer.
-                                                </Card.Text>
-                                            </Card.Body>
-                                            <Card.Footer>
-                                                <small className="text-muted">Last updated 3 mins ago</small>
-                                            </Card.Footer>
-                                        </Card>
-                                    </Link>
-                                </Col>
-                            ))}
-                        </Row>
-                    </div>
-                </div>
+            <br />
+            <div style={{ marginLeft: "115px", marginTop: "10px", marginRight: "115px" }} >
+                <Row xs={1} md={4} className="g-4">
+                    {dataFilter?.map((data, index) => {
+                        return (
+                            <Col>
+                                <Link to={`/detail/${data.id}`} className="text-decoraction-none" style={{ textDecoration: "none" }} >
+                                    <Card style={{ border: "none" }}>
+                                        <Card.Img variant="top" src={data.attache} style={{ height: "300px", widht: "200px", borderRadius: "10px" }} />
+                                        <Card.Body style={{ backgroundColor: "black" }}>
+                                            <Card.Title style={{ backgroundColor: "black", color: "white", marginLeft: "-17px" }}>{data.title}</Card.Title>
+                                            <Card.Text style={{ color: "white" }}>
+                                                <Row style={{ marginLeft: "-28px" }}>
+                                                    <Col>{data.author}</Col>
+                                                    <Col style={{ marginLeft: "140px" }}>{data.publicationdate}</Col>
+                                                </Row>
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </Link>
+                            </Col>
+                        );
+                    })}
+                </Row>
+            </div>
 
-            </CardGroup>
 
 
 

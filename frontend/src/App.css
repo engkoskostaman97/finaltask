@@ -188,7 +188,7 @@ nav a:first-child {
 
 .profile-desc {
   display: block;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
   min-width: 50%;
   max-width: 100%;
   min-height: 40vh;
@@ -214,9 +214,9 @@ nav a:first-child {
 
 .profile-button {
   position: relative;
-  width: 72%;
+  width: 65%;
   height: 70px;
-  margin-left: 125px;
+  margin-left: 145px;
   margin-top: 15px;
   font-size: 1.3rem;
   background: #e50914;

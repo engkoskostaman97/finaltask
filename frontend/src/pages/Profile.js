@@ -116,12 +116,12 @@ function Profile() {
             </div>
             <h3 style={{ marginLeft: "110px", color: "white" }}> My Literature</h3>
             <br />
-            <div style={{ marginLeft: "70px", marginRight: "115px" }} className="containerCard">
+            <div style={{ marginLeft: "115px", marginRight: "115px" }}>
 
                 <Row xs={1} md={4} className="g-4">
 
 
-                    {literatur?.slice(0, 4).map((data, index) => {
+                    {literatur?.slice(0, 6).map((data, index) => {
                         return (
                             <Col>
                                 <Card style={{ border: "none" }}>

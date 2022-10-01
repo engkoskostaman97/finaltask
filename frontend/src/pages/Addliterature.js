@@ -2,11 +2,31 @@
 import React, { useState, useEffect } from "react";
 import Navbars from "../component/Navbars";
 import { Form, Card, Row, Col, Button, Alert } from "react-bootstrap";
+import { BsPaperclip } from "react-icons/bs";
 import { API } from "../config/api";
 import { useMutation } from "react-query";
 import { Link, useNavigate } from "react-router-dom";
+const styles = {
+    cardd: {
+        backgroundColor: "black",
+        margin: "20px",
+    },
+    col: {
+        width: "915px",
+    },
+    color: {
+        backgroundColor: "rgba(210, 210, 210, 0.25)",
+        resize: "none",
+        borderColor: "white",
+        boxShadow: "none",
+    },
+    select: {
+        backgroundColor: "rgba(210, 210, 210, 0.25)",
+    },
+};
 
 function Addliterature() {
+    const [preview, setPreview] = useState(null); //For image preview
     const [form, setForm] = useState({
         title: "",
         publicationDate: "",
@@ -27,6 +47,12 @@ function Addliterature() {
             [e.target.name]:
                 e.target.type === "file" ? e.target.files : e.target.value,
         });
+        console.log("handle change", e.target.name);
+        // Create image url for preview
+        if (e.target.type === "file") {
+            let url = URL.createObjectURL(e.target.files[0]);
+            setPreview(url);
+        }
     };
 
     const handleSubmit = useMutation(async (e) => {
@@ -133,28 +159,39 @@ function Addliterature() {
                             />
                         </div>
 
-                        <div>
-                            <div className="col-4">
-                                <div className="form-floating">
-                                    <Form.Group className=" mt-2 ms-2 d-flex ">
-                                        <Form.Label
-                                            for="fileattach"
-                                            className="d-block p-2 bg-dark text-white rounded border"
-                                            type="file"
-                                            style={{ cursor: "pointer" }}
-                                        >
-                                            Attach Thumbail
-                                        </Form.Label>
-                                        <Form.Control
-                                            type="file"
-                                            id="fileattach"
-                                            name="attache"
-                                            onChange={handleChange}
-                                            accept="image/*,.pdf"
-                                            hidden
-                                        />
-                                    </Form.Group>
-                                </div>
+                        <div className="col-2" style={{ marginRight: "970px" }}>
+                            <div className="form-floating">
+                                <Form.Group className=" mt-2 ms-2 d-flex ">
+                                    {preview && (
+                                        <div>
+                                            <img
+                                                src={preview}
+                                                style={{
+                                                    maxWidth: "150px",
+                                                    maxHeight: "150px",
+                                                    objectFit: "cover",
+                                                }}
+                                                alt={preview}
+                                            />
+                                        </div>
+                                    )}
+                                    <Form.Label
+                                        for="fileattach"
+                                        className="d-block p-2 bg-dark text-white rounded border"
+                                        type="file"
+                                        style={{ cursor: "pointer" }}
+                                    >
+                                        Attach Thumbail
+                                        <BsPaperclip className="text-danger mx-2" />
+                                    </Form.Label>
+                                    <Form.Control
+                                        type="file"
+                                        id="fileattach"
+                                        name="attache"
+                                        onChange={handleChange}
+                                        accept="image/*,.pdf"
+                                        hidden />
+                                </Form.Group>
                             </div>
                         </div>
                         <div className="col-12 d-flex justify-content-end">
