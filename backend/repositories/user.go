@@ -14,24 +14,31 @@ type UserRepository interface {
 	DeleteUser(user models.User) (models.User, error)
 }
 
-// type repository struct {
-// 	db *gorm.DB
-// }
-
 func RepositoryUser(db *gorm.DB) *repository {
 	return &repository{db}
 }
 
 func (r *repository) FindUsers() ([]models.User, error) {
 	var users []models.User
-	err := r.db.Preload("Literaturs").Find(&users).Error
+	err := r.db.
+		Preload("Literaturs").
+		Preload("Collections").
+		Preload("Collections.Literatur").
+		Preload("Collections.Literatur.User").
+		Preload("Collections.User").
+		Find(&users).Error
 
 	return users, err
 }
 
 func (r *repository) GetUser(ID int) (models.User, error) {
 	var user models.User
-	err := r.db.Preload("Literaturs").First(&user, ID).Error
+	err := r.db.
+		Preload("Literaturs").
+		Preload("Collections").
+		Preload("Collections.Literatur").
+		Preload("Collections.User").
+		Preload("Collections.Literatur.User").First(&user, ID).Error
 
 	return user, err
 }

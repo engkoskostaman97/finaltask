@@ -181,7 +181,7 @@ export default function Register({
                 onClick={ShowPass}
                 className="mt-3"
               />
-              <label for="Show" className="ms-1">
+              <label for="Show" className="ms-1 text-light">
                 Show Password
               </label>
             </div>

@@ -15,9 +15,11 @@ type User struct {
 	// Profile ProfileResponse `json:"profile"`
 	// Literaturs LiteraturUserResponse `json:"literatur"`
 
-	Literaturs []LiteraturUserResponse `json:"literatur"`
-	CreatedAt  time.Time               `json:"-"`
-	UpdatedAt  time.Time               `json:"-"`
+	Literaturs  []LiteraturUserResponse `json:"literatur"`
+	Collections []CollectionResponse    `json:"collections"`
+	Status      string                  `json:"status"`
+	CreatedAt   time.Time               `json:"-"`
+	UpdatedAt   time.Time               `json:"-"`
 }
 
 type UsersProfileResponse struct {

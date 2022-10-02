@@ -141,7 +141,7 @@ func convertResponseLiteratur(u models.Literatur) models.LiteraturResponse {
 		Title:           u.Title,
 		User:            u.User,
 		PublicationDate: u.PublicationDate,
-		Pages:           u.PublicationDate,
+		Pages:           u.Pages,
 		ISBN:            u.ISBN,
 		Author:          u.Author,
 		Attache:         u.Attache,

@@ -75,12 +75,6 @@ export default function ModalLogin({
                     Navigate("/home");
                 }
 
-                const alert = (
-                    <Alert variant="success" className="py-1">
-                        Login success
-                    </Alert>
-                );
-                setMessage(alert);
             } else {
                 const alert = (
                     <Alert variant="danger" className="py-1">
@@ -153,7 +147,7 @@ export default function ModalLogin({
                                 onClick={ShowPass}
                                 className="mt-3"
                             />
-                            <label for="Show" className="ms-1">
+                            <label for="Show" className="ms-1 text-light">
                                 Show Password
                             </label>
                         </div>

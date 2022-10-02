@@ -170,11 +170,12 @@ nav a:first-child {
 .profile-data {
   display: flex;
   padding-left: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .profile-details {
   padding-left: 10px;
+  padding-top: 10px;
 }
 
 .profile-details span {
@@ -188,7 +189,7 @@ nav a:first-child {
 
 .profile-desc {
   display: block;
-  margin-bottom: 50px;
+  margin-bottom: 48px;
   min-width: 50%;
   max-width: 100%;
   min-height: 40vh;
@@ -204,17 +205,15 @@ nav a:first-child {
 }
 
 .profile-avatar {
-  padding-top: 20px;
-  margin-right: auto;
-  margin-left: 10px;
-  position: relative;
+  padding-top: 10px;
+  margin-left: 20px;
   float: right;
-  max-width: 80%;
+  max-width: 65%;
 }
 
 .profile-button {
   position: relative;
-  width: 65%;
+  width: 67%;
   height: 70px;
   margin-left: 145px;
   margin-top: 15px;

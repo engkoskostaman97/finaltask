@@ -1,5 +1,6 @@
+
 import React, { useState, useContext, useEffect } from "react";
-import avatar from "../assets/profile/blank-profile.png";
+import avatar from "../image/profile.png";
 import name from "../assets/profile/name.png";
 import email from "../assets/profile/email.png";
 import status from "../assets/profile/status.png";
@@ -8,46 +9,53 @@ import phone from "../assets/profile/phone.png";
 import address from "../assets/profile/address.png";
 import Navbars from "../component/Navbars";
 import Editprofile from "../component/Editprofile";
-import Homes from "../image/home.png";
+import Cover from "../image/cover1.png"
 import { UserContext } from "../context/userContext";
 import { API } from '../config/api'
 import { useQuery } from 'react-query'
+
+
 import { Card, Row, Col } from "react-bootstrap";
 
 function Profile() {
-    // const [show, setShow] = useState(false); 
-    // const handleShow = () => setShow(true); 
-    // const handleClose = () => setShow(false); 
+    // const [show, setShow] = useState(false);
+    // const handleShow = () => setShow(true);
+    // const handleClose = () => setShow(false);
 
     const [state, dispatch] = useContext(UserContext);
-    console.log("testing", state);
+
+    const [user, setUser] = useState(null)
+
+
+    console.log("testing user literatur", state);
 
 
 
     const [literatur, setLiteratur] = useState([])
-    // // Fetching product data from database
-    // let { data: products } = useQuery('productsCache', async () => {
-    //     const response = await API.get('/products');
-    //     return response.data.data;
-    // });
 
     let { data: literaturs } = useQuery("literaturCache", async () => {
 
         const config = {
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${localStorage.token}`,
+                Authorization: `Bearer ${localStorage.token}`
             }
         }
 
-        const response = await API.get(`/user/${state.user.user_id}`, config);
+        const response = await API.get(`/checkauth`, config);
         console.log("response literatur", response);
 
-        const resultResponse = response.data.data.literatur;
+        const liter = await API.get(`/user/${response.data?.data?.id}`)
+
+        const resultResponse = liter.data.data.literatur;
+        setUser(liter.data?.data)
         setLiteratur(resultResponse)
+        console.log("ini", resultResponse);
 
         return resultResponse;
     });
+
+    console.log(user);
 
     return (
         <>
@@ -64,7 +72,7 @@ function Profile() {
                             </div>
                             <div className="profile-details">
                                 <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    {state.user.email}
+                                    {state?.user?.email}
                                 </span>
                                 <span>Email</span>
                             </div>
@@ -76,7 +84,7 @@ function Profile() {
                             <div className="profile-details">
                                 <span style={{ fontSize: "18px", fontWeight: "bold" }}>
                                     {" "}
-                                    {state.user.gender}
+                                    {user?.gender}
                                 </span>
                                 <span>Gender</span>
                             </div>
@@ -87,7 +95,7 @@ function Profile() {
                             </div>
                             <div className="profile-details">
                                 <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    {state.user.phone}
+                                    {user?.phone}
                                 </span>
                                 <span>Mobile Phone</span>
                             </div>
@@ -98,7 +106,7 @@ function Profile() {
                             </div>
                             <div className="profile-details">
                                 <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-                                    {state.user.address}
+                                    {user?.address}
                                 </span>
                                 <span>Address</span>
                             </div>
@@ -107,6 +115,7 @@ function Profile() {
                             <button className='btn-edite'>Edite Profile</button>
                         </div> */}
                     </div>
+
                     <div className="profile-img">
                         <img src={avatar} alt="avatar" className="profile-avatar" style={{ height: "300px", weight: "100px", objectFit: "cover" }} />
                         <button className="profile-button">Change Photo Profile</button>
@@ -121,11 +130,11 @@ function Profile() {
                 <Row xs={1} md={4} className="g-4">
 
 
-                    {literatur?.slice(0, 6).map((data, index) => {
+                    {literatur?.map((data, index) => {
                         return (
                             <Col>
                                 <Card style={{ border: "none" }}>
-                                    <Card.Img variant="top" src={Homes} style={{ height: "300px", borderRadius: "10px" }} />
+                                    <Card.Img variant="top" src={Cover} style={{ height: "300px", borderRadius: "10px" }} />
                                     <Card.Body style={{ backgroundColor: "black" }}>
                                         <Card.Title style={{ backgroundColor: "black", color: "white", marginLeft: "-17px" }}>{data.title}</Card.Title>
                                         <Card.Text style={{ color: "white" }}>

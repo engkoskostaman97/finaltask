@@ -7,8 +7,7 @@ import (
 	"literatur/routes"
 	"net/http"
 
-	"github.com/gorilla/handlers" // import this package ...
-
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
 )

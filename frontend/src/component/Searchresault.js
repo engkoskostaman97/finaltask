@@ -7,7 +7,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
-import Homes from '../image/home.png'
+import Cover from "../image/cover1.png";
 import { Link } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { API } from '../config/api';
@@ -17,6 +17,7 @@ function Searchresault() {
     // Fetching product data from database
     let { data: literaturs } = useQuery('literaturssCache', async () => {
         const response = await API.get('/literaturs');
+        console.log("ini", literaturs);
         return response.data.data;
     });
     //declare state
@@ -76,9 +77,9 @@ function Searchresault() {
                 <div style={{ marginLeft: "115px", marginTop: "20px", color: "white" }}>
                     <p>Anytime</p>
                     <DropdownButton id="dropdown-basic-button" title="Since " variant="light">
-                        <Dropdown.Item href="/action-1">Action</Dropdown.Item>
-                        <Dropdown.Item href="/action-2">Another action</Dropdown.Item>
-                        <Dropdown.Item href="/action-3">Something else</Dropdown.Item>
+                        <Dropdown.Item href="/action-1">2017</Dropdown.Item>
+                        <Dropdown.Item href="/action-2">2020</Dropdown.Item>
+                        <Dropdown.Item href="/action-3">2015</Dropdown.Item>
                     </DropdownButton>
                 </div>
             </div>
@@ -90,7 +91,7 @@ function Searchresault() {
                             <Col>
                                 <Link to={`/detail/${data.id}`} className="text-decoraction-none" style={{ textDecoration: "none" }} >
                                     <Card style={{ border: "none" }}>
-                                        <Card.Img variant="top" src={data.attache} style={{ height: "300px", widht: "200px", borderRadius: "10px" }} />
+                                        <Card.Img variant="top" src={Cover} style={{ height: "300px", widht: "200px", borderRadius: "10px" }} />
                                         <Card.Body style={{ backgroundColor: "black" }}>
                                             <Card.Title style={{ backgroundColor: "black", color: "white", marginLeft: "-17px" }}>{data.title}</Card.Title>
                                             <Card.Text style={{ color: "white" }}>

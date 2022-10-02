@@ -13,9 +13,11 @@ type Collection struct {
 }
 
 type CollectionResponse struct {
-	ID          int               `json:"id"`
-	LiteraturID int               `json:"literatur_id"`
-	Literatur   LiteraturResponse `json:"literatur"`
+	ID          int                  `json:"id"`
+	LiteraturID int                  `json:"literatur_id"`
+	Literatur   LiteraturResponse    `json:"literatur"`
+	UserID      int                  `json:"user_id"`
+	User        UsersProfileResponse `json:"user"`
 }
 
 func (CollectionResponse) TableName() string {

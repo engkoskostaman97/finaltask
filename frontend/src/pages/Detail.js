@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import Card from 'react-bootstrap/Card';
 import Navbars from '../component/Navbars';
-import Homes from '../image/home.png';
+import Cover from "../image/cover1.png"
 import { useQuery, useMutation } from "react-query";
 import { useParams, useNavigate } from "react-router-dom";
 import { API, setAuthToken } from "../config/api";
@@ -51,8 +51,9 @@ function Detail() {
                 <div class="row bg-faded">
                     <div class="col-4">
                         <Card ref={componentRef} style={{ width: '18rem', height: "30rem" }}>
-                            <Card.Img src={literaturs?.attache} />
-                            <Card.Body>
+                            <Card.Img src={Cover} />
+                            {literaturs?.attache}
+                            {/* <Card.Body>
                                 <Card.Title>{literaturs?.title}</Card.Title>
                                 <Card.Text>
                                     BOOK
@@ -60,25 +61,25 @@ function Detail() {
                             </Card.Body>
                             <Card.Footer >
                                 <small className="font-weight-bold text-lg text-uppercase">Management System<small className="font-weight-bold text-lg text-uppercase" > 2012</small></small>
-                            </Card.Footer>
+                            </Card.Footer> */}
                         </Card>
                     </div>
                     <div class="col-6" style={{ backgrounColor: "black" }}>
                         <div style={{ backgrounColor: "black" }} className="text-light">
                             <h2>{literaturs?.title}</h2>
                             <br></br>
-                            <p className='text-secondary'>Haris Astina</p>
+                            <p className='text-secondary'>{literaturs?.author}</p>
                             <h2>Publication date</h2>
                             <br></br>
-                            <p className='text-secondary'>April 2020</p>
+                            <p className='text-secondary'>{literaturs?.publicationdate}</p>
                             <h2>Pages</h2>
                             <br></br>
-                            <p className='text-secondary'>436</p>
+                            <p className='text-secondary'>{literaturs?.pages}</p>
                             <h2 className='text-danger'>ISBN</h2>
                             <br></br>
-                            <p className='text-secondary'>9781789807554</p>
-                            <button className='bg-danger text-light' onClick={handlePrint}>
-                                Download
+                            <p className='text-secondary'>{literaturs?.isbn}</p>
+                            <button className='bg-danger text-light ' >
+                                <a style={{ color: "white", textDecoration: "none" }} href={literaturs?.attache} target="_blank" className="">Download</a>
                             </button>
                         </div>
                     </div>

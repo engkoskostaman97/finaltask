@@ -6,30 +6,12 @@ import { BsPaperclip } from "react-icons/bs";
 import { API } from "../config/api";
 import { useMutation } from "react-query";
 import { Link, useNavigate } from "react-router-dom";
-const styles = {
-    cardd: {
-        backgroundColor: "black",
-        margin: "20px",
-    },
-    col: {
-        width: "915px",
-    },
-    color: {
-        backgroundColor: "rgba(210, 210, 210, 0.25)",
-        resize: "none",
-        borderColor: "white",
-        boxShadow: "none",
-    },
-    select: {
-        backgroundColor: "rgba(210, 210, 210, 0.25)",
-    },
-};
 
 function Addliterature() {
     const [preview, setPreview] = useState(null); //For image preview
     const [form, setForm] = useState({
         title: "",
-        publicationDate: "",
+        publicationdate: "",
         pages: "",
         isbn: "",
         author: "",
@@ -98,6 +80,7 @@ function Addliterature() {
         console.log(form);
     }, [form.fileattach]);
 
+
     return (
         <>
             <div>
@@ -127,6 +110,7 @@ function Addliterature() {
                             <Form.Control
                                 type="text"
                                 placeholder="Publication Date"
+                                onChange={handleChange}
                                 name="publicationdate"
                                 className="bg-dark text-white"
                             />
@@ -159,41 +143,31 @@ function Addliterature() {
                             />
                         </div>
 
-                        <div className="col-2" style={{ marginRight: "970px" }}>
-                            <div className="form-floating">
-                                <Form.Group className=" mt-2 ms-2 d-flex ">
-                                    {preview && (
-                                        <div>
-                                            <img
-                                                src={preview}
-                                                style={{
-                                                    maxWidth: "150px",
-                                                    maxHeight: "150px",
-                                                    objectFit: "cover",
-                                                }}
-                                                alt={preview}
-                                            />
-                                        </div>
-                                    )}
-                                    <Form.Label
-                                        for="fileattach"
-                                        className="d-block p-2 bg-dark text-white rounded border"
-                                        type="file"
-                                        style={{ cursor: "pointer" }}
-                                    >
-                                        Attach Thumbail
-                                        <BsPaperclip className="text-danger mx-2" />
-                                    </Form.Label>
-                                    <Form.Control
-                                        type="file"
-                                        id="fileattach"
-                                        name="attache"
-                                        onChange={handleChange}
-                                        accept="image/*,.pdf"
-                                        hidden />
-                                </Form.Group>
+                        <div>
+                            <div className="col-4">
+                                <div className="form-floating">
+                                    <Form.Group className=" mt-2 ms-1 d-flex ">
+                                        <Form.Label
+                                            for="fileattach"
+                                            className="d-block p-2 bg-dark text-white rounded border"
+                                            type="file"
+                                            style={{ cursor: "pointer" }}
+                                        >
+                                            Attach Thumbail
+                                            <BsPaperclip className="text-danger mx-2" />
+                                        </Form.Label>                                        <Form.Control
+                                            type="file"
+                                            id="fileattach"
+                                            name="attache"
+                                            onChange={handleChange}
+                                            accept="image/*,.pdf"
+                                            hidden
+                                        />
+                                    </Form.Group>
+                                </div>
                             </div>
                         </div>
+
                         <div className="col-12 d-flex justify-content-end">
                             <button
                                 class="btn btn-danger float-md-end btn-l d-grid gap-2 col-2"
