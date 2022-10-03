@@ -36,10 +36,8 @@ function Detail() {
         }
     };
 
-    const componentRef = useRef();
-    const handlePrint = useReactToPrint({
-        content: () => componentRef.current,
-    });
+
+
 
 
     return (
@@ -50,18 +48,10 @@ function Detail() {
             <div class="container">
                 <div class="row bg-faded">
                     <div class="col-4">
-                        <Card ref={componentRef} style={{ width: '18rem', height: "30rem" }}>
+                        <Card style={{ width: '18rem', height: "30rem" }} className="text-danger">
                             <Card.Img src={Cover} />
                             {literaturs?.attache}
-                            {/* <Card.Body>
-                                <Card.Title>{literaturs?.title}</Card.Title>
-                                <Card.Text>
-                                    BOOK
-                                </Card.Text>
-                            </Card.Body>
-                            <Card.Footer >
-                                <small className="font-weight-bold text-lg text-uppercase">Management System<small className="font-weight-bold text-lg text-uppercase" > 2012</small></small>
-                            </Card.Footer> */}
+
                         </Card>
                     </div>
                     <div class="col-6" style={{ backgrounColor: "black" }}>

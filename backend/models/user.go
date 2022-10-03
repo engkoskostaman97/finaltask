@@ -10,10 +10,7 @@ type User struct {
 	Gender   string `json:"gender" gorm:"type: varchar(255)"`
 	Phone    string `json:"phone" gorm:"type: varchar(255)"`
 	Address  string `json:"address" gorm:"type: varchar(255)"`
-	// Role     string `json:"role" gorm:"type: varchar(255)"`
-
-	// Profile ProfileResponse `json:"profile"`
-	// Literaturs LiteraturUserResponse `json:"literatur"`
+	
 
 	Literaturs  []LiteraturUserResponse `json:"literatur"`
 	Collections []CollectionResponse    `json:"collections"`
@@ -29,9 +26,7 @@ type UsersProfileResponse struct {
 	Gender   string `json:"gender"`
 	Phone    string `json:"phone"`
 	Address  string `json:"address"`
-	// Role     string `json:"role"`
-
-	// Profile ProfileResponse `json:"profile"`
+	
 }
 
 func (UsersProfileResponse) TableName() string {

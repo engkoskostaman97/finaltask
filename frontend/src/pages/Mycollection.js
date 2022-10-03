@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbars from "../component/Navbars";
 import Button from "react-bootstrap/Button";
 import { Card, Row, Col } from "react-bootstrap";
-import Homes from "../image/home.png";
-import imgg from "../assets/profile/blank-profile.png"
-import { API } from '../config/api'
-import { useQuery } from 'react-query'
+import { API } from '../config/api';
+import { useQuery } from 'react-query';
+import Cover from "../image/cover1.png"
+
 
 
 function Mycollection() {
@@ -30,13 +30,17 @@ function Mycollection() {
         return resultResponse;
     });
 
-    console.log("ini ", literatur)
+    console.log("ini ", literatur);
+
 
     return (
         <>
+
             <div>
                 <Navbars />
             </div>
+
+
             <h3 style={{ marginLeft: "115px", color: "white" }}> My Collection</h3>
             <div style={{ marginLeft: "115px", marginRight: "115px" }}>
 
@@ -47,7 +51,8 @@ function Mycollection() {
                     {literatur?.map((data, index) => {
                         return (
                             <Col>
-                                <Card style={{ border: "none" }}>
+                                <Card style={{ border: "none" }} className="text-danger">
+                                    <Card.Img src={Cover} />
                                     {data.literatur.attache}
                                     <Card.Body style={{ backgroundColor: "black" }}>
                                         <Card.Title style={{ backgroundColor: "black", color: "white", marginLeft: "-17px" }}>{data.literatur.title}</Card.Title>
@@ -65,6 +70,7 @@ function Mycollection() {
                 </Row>
 
             </div>
+
         </>
     );
 }

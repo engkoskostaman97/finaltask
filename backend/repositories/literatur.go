@@ -10,7 +10,7 @@ type LiteraturRepository interface {
 	FindLiteraturs() ([]models.Literatur, error)
 	GetLiteratur(ID int) (models.Literatur, error)
 	CreateLiteratur(literatur models.Literatur) (models.Literatur, error)
-	// FindCategoriesById(CategoryID []int) ([]models.Category, error)
+	
 }
 
 func RepositoryLiteratur(db *gorm.DB) *repository {
@@ -37,9 +37,3 @@ func (r *repository) CreateLiteratur(literatur models.Literatur) (models.Literat
 	return literatur, err
 }
 
-// func (r *repository) FindCategoriesById(CategoryID []int) ([]models.Category, error) {
-// 	var categories []models.Category
-// 	err := r.db.Find(&categories, CategoryID).Error
-
-// 	return categories, err
-// }

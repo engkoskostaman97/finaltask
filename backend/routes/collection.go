@@ -15,9 +15,7 @@ func CollectionRoutes(r *mux.Router) {
 
 	r.HandleFunc("/collections", h.FindCollections).Methods("GET")
 	r.HandleFunc("/collection/{id}", h.GetCollection).Methods("GET")
-	// r.HandleFunc("/collections-id", middleware.Auth(h.FindCollectionsByID)).Methods("GET")
 	r.HandleFunc("/collection", middleware.Auth(h.CreateCollection)).Methods("POST")
-	// r.HandleFunc("/collection", middleware.Auth(h.UpdateCollection)).Methods("PATCH")
 	r.HandleFunc("/collection/{id}", middleware.Auth(h.UpdateeCollection)).Methods("PATCH")
 	r.HandleFunc("/collection/{id}", middleware.Auth(h.DeleteCollection)).Methods("DELETE")
 }

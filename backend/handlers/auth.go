@@ -132,7 +132,6 @@ func (h *handlerAuth) Login(w http.ResponseWriter, r *http.Request) {
 		Phone:    user.Phone,
 		Address:  user.Address,
 		Status:   user.Status,
-		// Password: user.Password,
 		Token: token,
 	}
 
@@ -162,7 +161,6 @@ func (h *handlerAuth) CheckAuth(w http.ResponseWriter, r *http.Request) {
 		FullName: user.FullName,
 		Email:    user.Email,
 		Status:   user.Status,
-		// Role:     user.Role,
 	}
 
 	w.Header().Set("Content-Type", "application/json")

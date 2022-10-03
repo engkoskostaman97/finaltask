@@ -8,8 +8,6 @@ type LoginResponse struct {
 	Address  string `gorm:"type: varchar(255)" json:"address"`
 	UserID   int    `json:"user_id"`
 	Status   string `json:"status"`
-
-	// Role     string `gorm:"type: varchar(255)" json:"role"`
 	Password string `gorm:"type: varchar(255)" json:"password"`
 	Token    string `gorm:"type: varchar(255)" json:"token"`
 }

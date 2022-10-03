@@ -13,9 +13,7 @@ type CollectionRepository interface {
 	UpdateCollection(Collection []models.Collection) ([]models.Collection, error)
 	UpdateeCollection(Collection models.Collection) (models.Collection, error)
 	DeleteCollection(Collection models.Collection) (models.Collection, error)
-	// CreateTransactionID(transaction models.Transaction) (models.Transaction, error)
-	// FindProductID(ProductID []int) ([]models.Product, error)
-	// FindCollectionsTransaction(TrxID int) ([]models.Collection, error)
+
 }
 
 func RepositoryCollection(db *gorm.DB) *repository {
@@ -60,11 +58,6 @@ func (r *repository) DeleteCollection(collection models.Collection) (models.Coll
 	return collection, err
 }
 
-// func (r *repository) CreateTransactionID(transaction models.Transaction) (models.Transaction, error) {
-// 	err := r.db.Create(&transaction).Error
-
-// 	return transaction, err
-// }
 
 func (r *repository) FindLiteraturID([]int) ([]models.Literatur, error) {
 	var literatur []models.Literatur
@@ -73,9 +66,3 @@ func (r *repository) FindLiteraturID([]int) ([]models.Literatur, error) {
 	return literatur, err
 }
 
-// func (r *repository) FindCollectionsTransaction(TrxID int) ([]models.Collection, error) {
-// 	var collections []models.Collection
-// 	err := r.db.Preload("Product").Find(&collections, "user_id = ? AND status = ?", TrxID, "on").Error
-
-// 	return collections, err
-// }

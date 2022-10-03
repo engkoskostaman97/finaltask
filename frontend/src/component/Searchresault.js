@@ -90,8 +90,9 @@ function Searchresault() {
                         return (
                             <Col>
                                 <Link to={`/detail/${data.id}`} className="text-decoraction-none" style={{ textDecoration: "none" }} >
-                                    <Card style={{ border: "none" }}>
+                                    <Card style={{ border: "none", color: "red" }}>
                                         <Card.Img variant="top" src={Cover} style={{ height: "300px", widht: "200px", borderRadius: "10px" }} />
+                                        {data?.attache}
                                         <Card.Body style={{ backgroundColor: "black" }}>
                                             <Card.Title style={{ backgroundColor: "black", color: "white", marginLeft: "-17px" }}>{data.title}</Card.Title>
                                             <Card.Text style={{ color: "white" }}>

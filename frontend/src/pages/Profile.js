@@ -133,8 +133,9 @@ function Profile() {
                     {literatur?.map((data, index) => {
                         return (
                             <Col>
-                                <Card style={{ border: "none" }}>
+                                <Card style={{ border: "none" }} className="text-danger">
                                     <Card.Img variant="top" src={Cover} style={{ height: "300px", borderRadius: "10px" }} />
+                                    {data.attache}
                                     <Card.Body style={{ backgroundColor: "black" }}>
                                         <Card.Title style={{ backgroundColor: "black", color: "white", marginLeft: "-17px" }}>{data.title}</Card.Title>
                                         <Card.Text style={{ color: "white" }}>
