@@ -136,7 +136,7 @@ function Addliterature() {
                         <div className="d-grid gap-2">
                             <Form.Control
                                 type="text"
-                                placeholder="Author"
+                                placeholder="Author,Ex: Rizky"
                                 name="author"
                                 onChange={handleChange}
                                 className="bg-dark text-white"
@@ -146,23 +146,41 @@ function Addliterature() {
                         <div>
                             <div className="col-4">
                                 <div className="form-floating">
-                                    <Form.Group className=" mt-2 ms-1 d-flex ">
+                                    <Form.Group className=" mt-2 ms-2 d-flex ">
+                                        {preview && (
+                                            <div>
+                                                <img
+                                                    src={preview}
+                                                    style={{
+                                                        maxWidth: "320px",
+                                                        maxHeight: "200px",
+                                                        objectFit: "cover",
+                                                    }}
+
+                                                    className="text-danger"
+                                                    alt={preview}
+                                                />
+                                            </div>
+                                        )}
                                         <Form.Label
                                             for="fileattach"
                                             className="d-block p-2 bg-dark text-white rounded border"
                                             type="file"
                                             style={{ cursor: "pointer" }}
                                         >
-                                            Attach Thumbail
+                                            Attache Book File
                                             <BsPaperclip className="text-danger mx-2" />
-                                        </Form.Label>                                        <Form.Control
-                                            type="file"
-                                            id="fileattach"
-                                            name="attache"
-                                            onChange={handleChange}
-                                            accept="image/*,.pdf"
-                                            hidden
-                                        />
+                                        </Form.Label>
+                                        <div>
+                                            <Form.Control
+                                                type="file"
+                                                id="fileattach"
+                                                name="attache"
+                                                onChange={handleChange}
+                                                accept="image/*,.pdf"
+                                                hidden
+                                            />
+                                        </div>
                                     </Form.Group>
                                 </div>
                             </div>
@@ -172,7 +190,6 @@ function Addliterature() {
                             <button
                                 class="btn btn-danger float-md-end btn-l d-grid gap-2 col-2"
                                 type="submit"
-
                             >
                                 Add Literature
                             </button>

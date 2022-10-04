@@ -45,7 +45,7 @@ function Landing() {
 
         <>
             <div>
-                <img src={Literatur} alt="literatur" className='literatur' />
+                <img src={Literatur} alt="literatur" className='literatur'style={{marginLeft:"76px"}} />
             </div>
             <Container className="landing">
                 <Row noGutters style={{ width: '100%' }}>
